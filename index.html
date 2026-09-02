@@ -3,228 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>La penúltima pista 💚</title>
 
     <style>
         * {
             box-sizing: border-box;
-            margin: 0;
-            padding: 0;
         }
 
         body {
+            margin: 0;
             min-height: 100vh;
-            font-family: Georgia, 'Times New Roman', serif;
-            background:
-                radial-gradient(circle at 50% 20%, #193c35 0%, #0b211d 35%, #06110f 75%);
-            color: #f3f7f3;
             display: flex;
-            justify-content: center;
             align-items: center;
-            padding: 25px;
-            overflow-x: hidden;
+            justify-content: center;
+            padding: 20px;
+            font-family: Georgia, "Times New Roman", serif;
+            background:
+                radial-gradient(circle at top, #21483c 0%, #0b211b 45%, #06110e 100%);
+            color: #f4f8f5;
         }
 
-        /* Partículas */
-        .particle {
-            position: fixed;
-            width: 4px;
-            height: 4px;
-            background: #9ee6c2;
-            border-radius: 50%;
-            opacity: 0.5;
-            animation: float 7s infinite ease-in-out;
-        }
-
-        .particle:nth-child(1) {
-            left: 10%;
-            top: 20%;
-            animation-delay: 0s;
-        }
-
-        .particle:nth-child(2) {
-            left: 80%;
-            top: 15%;
-            animation-delay: 2s;
-        }
-
-        .particle:nth-child(3) {
-            left: 20%;
-            top: 75%;
-            animation-delay: 1s;
-        }
-
-        .particle:nth-child(4) {
-            left: 90%;
-            top: 70%;
-            animation-delay: 3s;
-        }
-
-        .particle:nth-child(5) {
-            left: 50%;
-            top: 10%;
-            animation-delay: 4s;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-                opacity: 0.2;
-            }
-
-            50% {
-                transform: translateY(-25px);
-                opacity: 0.8;
-            }
-        }
-
-        /* Contenedor */
         .card {
             width: 100%;
-            max-width: 650px;
-            background: rgba(7, 25, 21, 0.88);
-            border: 1px solid rgba(158, 230, 194, 0.35);
-            border-radius: 24px;
-            padding: 42px 32px;
-            box-shadow:
-                0 0 50px rgba(72, 180, 130, 0.15),
-                inset 0 0 30px rgba(72, 180, 130, 0.04);
-            backdrop-filter: blur(8px);
-            animation: appear 1.5s ease;
+            max-width: 520px;
+            padding: 45px 30px;
             text-align: center;
+            background: rgba(5, 25, 19, 0.88);
+            border: 1px solid rgba(170, 235, 198, 0.35);
+            border-radius: 24px;
+            box-shadow: 0 0 45px rgba(100, 220, 160, 0.15);
+            animation: aparecer 1.2s ease;
         }
 
-        @keyframes appear {
-            from {
-                opacity: 0;
-                transform: translateY(25px) scale(0.97);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        /* Corazón */
         .heart {
             font-size: 55px;
             margin-bottom: 15px;
-            animation: heartbeat 2s infinite ease-in-out;
-            filter: drop-shadow(0 0 12px rgba(100, 230, 170, 0.5));
-        }
-
-        @keyframes heartbeat {
-            0%, 100% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.12);
-            }
+            animation: latido 2s infinite;
         }
 
         h1 {
-            font-size: 32px;
-            color: #b9f2d1;
-            margin-bottom: 30px;
+            margin: 0 0 30px;
+            font-size: 30px;
             font-weight: normal;
-            letter-spacing: 0.5px;
+            color: #bdf0d2;
         }
 
-        .intro {
+        p {
             font-size: 19px;
             line-height: 1.8;
-            color: #e8f2ec;
-            margin-bottom: 25px;
+            margin: 15px 0;
         }
 
-        .line {
-            margin: 7px 0;
-        }
-
-        .highlight {
-            color: #a7e9c4;
+        .cofre {
+            font-size: 22px;
+            margin: 25px 0;
+            color: #c8f3d9;
             font-weight: bold;
         }
 
         .virgo {
             display: inline-block;
-            margin: 18px 0;
-            padding: 12px 25px;
-            border: 1px solid rgba(167, 233, 196, 0.45);
-            border-radius: 50px;
-            color: #c5f5d8;
-            font-size: 22px;
-            box-shadow: 0 0 20px rgba(100, 220, 160, 0.08);
+            margin: 10px 0 20px;
+            padding: 10px 24px;
+            border: 1px solid rgba(189, 240, 210, 0.4);
+            border-radius: 30px;
+            font-size: 23px;
+            color: #c8f3d9;
         }
 
-        .divider {
-            width: 80px;
-            height: 1px;
-            background: linear-gradient(
-                to right,
-                transparent,
-                #91dcb5,
-                transparent
-            );
-            margin: 30px auto;
-        }
-
-        .mystery {
-            font-size: 20px;
-            line-height: 1.8;
-            color: #edf7f1;
-            margin: 20px 0;
-        }
-
-        .final-message {
-            margin-top: 32px;
-            padding: 22px;
-            border-radius: 16px;
-            background: rgba(90, 180, 130, 0.08);
-            border: 1px solid rgba(158, 230, 194, 0.2);
-            color: #c7efd7;
-            font-size: 18px;
-            line-height: 1.7;
-        }
-
-        .small {
-            display: block;
-            margin-top: 15px;
-            font-size: 15px;
-            color: #9db9aa;
+        .final {
+            margin-top: 30px;
+            font-size: 17px;
+            color: #a8c4b3;
             font-style: italic;
         }
 
-        /* Adaptación móvil */
-        @media (max-width: 600px) {
-
-            body {
-                padding: 15px;
+        @keyframes aparecer {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
             }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
+        @keyframes latido {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.12);
+            }
+        }
+
+        @media (max-width: 500px) {
             .card {
-                padding: 32px 22px;
-                border-radius: 20px;
+                padding: 38px 22px;
             }
 
             h1 {
                 font-size: 27px;
             }
 
-            .intro,
-            .mystery {
+            p {
                 font-size: 17px;
-            }
-
-            .heart {
-                font-size: 48px;
-            }
-
-            .virgo {
-                font-size: 20px;
             }
         }
     </style>
@@ -232,104 +116,38 @@
 
 <body>
 
-    <!-- Partículas decorativas -->
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-
-    <main class="card">
+    <div class="card">
 
         <div class="heart">💚</div>
 
         <h1>La penúltima pista</h1>
 
-        <div class="intro">
-            <div class="line">Has llegado muy lejos…</div>
+        <p>Ya casi estás al final…</p>
 
-            <div class="line">
-                Pero todavía queda una pequeña misión
-                antes de descubrir tu regalo.
-            </div>
-        </div>
+        <p class="cofre">
+            Busca un pequeño cofre. ✨
+        </p>
 
-        <div class="divider"></div>
-
-        <div class="intro">
-            <div class="line">Hay algo escondido para ti.</div>
-
-            <div class="line">Algo pequeño.</div>
-
-            <div class="line">Algo verde.</div>
-
-            <div class="line">
-                Algo que guarda un poquito de magia. ✨
-            </div>
-        </div>
-
-        <div class="divider"></div>
-
-        <div class="mystery">
-            Para encontrarlo tendrás que pensar
-            en alguien muy especial:
-        </div>
+        <p>
+            Dentro encontrarás algo elegido especialmente para ti,
+            algo que dicen que le viene muy bien a tu signo:
+        </p>
 
         <div class="virgo">
             ♍ Virgo
         </div>
 
-        <div class="mystery">
-            Dicen que la <span class="highlight">fluorita verde</span>
-            está relacionada con este signo y que representa
-            claridad, equilibrio y calma.
-        </div>
+        <p>
+            Cuando lo encuentres,<br>
+            <strong>ábrelo.</strong>
+        </p>
 
-        <div class="divider"></div>
+        <p class="final">
+            Y recuerda…<br><br>
+            todavía queda una última sorpresa. 💚
+        </p>
 
-        <div class="mystery">
-            Pero hoy no tienes que buscar una estrella,
-            <br>
-            ni una constelación,
-            <br>
-            ni siquiera mirar al cielo.
-        </div>
-
-        <div class="mystery highlight">
-            Tu pequeño tesoro está mucho más cerca.
-        </div>
-
-        <div class="divider"></div>
-
-        <div class="mystery">
-            Busca un lugar donde pueda esconderse
-            un <span class="highlight">pequeño cofre</span>.
-        </div>
-
-        <div class="mystery">
-            Un lugar que quizá no llame demasiado la atención,
-            pero que guarde algo pensado especialmente para ti.
-        </div>
-
-        <div class="mystery">
-            Cuando lo encuentres…
-            <br><br>
-            <span class="highlight">ábrelo. 💚</span>
-        </div>
-
-        <div class="final-message">
-
-            Porque dentro hay algo que te dará
-            <strong>la última pista</strong>
-            para descubrir tu verdadero regalo.
-
-            <span class="small">
-                Y recuerda: esta todavía no es la última sorpresa… ✨
-            </span>
-
-        </div>
-
-    </main>
+    </div>
 
 </body>
 </html>
